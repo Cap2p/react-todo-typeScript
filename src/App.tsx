@@ -27,6 +27,9 @@ function App() {
     });
     setTodos(newTodos)
   }
+  const deleteTodo = (todoItem: Todo) => {
+    setTodos(todos.filter(todo => todo !== todoItem));
+  }
   const addTodo: AddTodo = (text: string) => {
     const newTodo = {
       text,
@@ -36,7 +39,7 @@ function App() {
   }
   return (
     <div className="App">
-      <TodoList todos={todos} toggleTodo={toggleTodo}/>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
       <AddTodoForm addTodo={addTodo}/>
     </div>
   );
