@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ChatContext } from './class/ChatContext';
 import { AddTodoForm } from './components/AddTodoForm';
 import TodoList from './components/TodoList';
 
@@ -14,6 +15,8 @@ const initialState: Todo[] = [
 ]
 
 function App() {
+  const contextType = useContext(ChatContext);
+  
   const [todos, setTodos] = useState(initialState)
   const toggleTodo = (selectedTodo: Todo) =>  {
     const newTodos = todos.map(todo => {
