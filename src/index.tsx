@@ -2,10 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { SocketService } from './class/SocketService';
+import { ChatContext } from './class/ChatContext';
+
+const chat = new SocketService();
+
 
 ReactDOM.render(
   <React.StrictMode>
+   <ChatContext.Provider value={chat}>
     <App />
+  </ChatContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
